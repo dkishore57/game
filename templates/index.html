@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Phone Number</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Guess the 10-Digit Number</h1>
+        
+        <div class="progress-bar">
+            {{ progress }}
+        </div>
+        
+        <p class="prompt">{{ prompt }}</p>
+        
+        <form method="POST" action="{{ url_for('game') }}" class="guess-form">
+            <input type="text" 
+                   name="guess" 
+                   maxlength="1" 
+                   pattern="[0-9]" 
+                   inputmode="numeric" 
+                   required 
+                   autofocus
+                   oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            <button type="submit">Guess</button>
+        </form>
+        
+        {% if message %}
+            <p class="message {{ message_class }}">
+                {{ message }}
+            </p>
+        {% endif %}
+    </div>
+</body>
+</html>

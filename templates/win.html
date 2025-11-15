@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Won!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 You Won! 🎉</h1>
+        <p>You guessed the complete number:</p>
+        
+        <div class="progress-bar final">
+            {{ phone_number }}
+        </div>
+        
+        <a href="{{ url_for('index') }}" class="button">Play Again</a>
+    </div>
+</body>
+</html>
